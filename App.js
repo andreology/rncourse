@@ -1,5 +1,5 @@
 //Andre Barajas
-//React Native App
+//React Native App Practice 
 //Summer 2019
 import { Navigation } from 'react-native-navigation';
 import { Provider } from 'react-redux';

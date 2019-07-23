@@ -14,6 +14,8 @@ const listItem = (props) => (
 const styles = StyleSheet.create({
     listItem: {
         width: "100%",
+        flexDirection: "row",
+        alignItems: "center",
         padding: 10,
         backgroundColor: "#eee",
         marginBottom: 5

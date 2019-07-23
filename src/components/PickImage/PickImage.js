@@ -1,3 +1,6 @@
+//Andre Barajas
+//React Native App Practice 
+//Summer 2019
 import React, { Component } from 'react';
 import { Text, View, Image, Button, StyleSheet } from 'react-native';
 
