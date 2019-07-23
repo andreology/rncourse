@@ -1,5 +1,7 @@
 /**
- * @format
+ * @//Andre Barajas
+//React Native App
+//Summer 2019
  */
 import { Provider } from 'react-redux';
 import {AppRegistry} from 'react-native';
