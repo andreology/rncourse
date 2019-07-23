@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\assets",
+    "\\src\\components",
+    "\\src\\components\\PickImage",
+    "\\src\\components\\PickLocation",
+    "\\src\\components\\UI",
+    "\\src\\components\\UI\\ButtonWithBackground",
+    "\\src\\components\\UI\\MainText",
+    "\\src\\screens"
+  ],
+  "SelectedNode": "\\src\\screens\\SharePlace\\SharePlace.js",
+  "PreviewInSolutionExplorer": false
+}
