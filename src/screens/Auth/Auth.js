@@ -1,21 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
     View,
-    ImageBackground,
+    Text,
+    Button,
+    TextInput,
     StyleSheet,
+    ImageBackground,
     Dimensions
-} from 'react-native';
+} from "react-native";
 
-import DefaultInput from '../../components/UI/DefaultInput/DefaultInput';
-import startMainTabs from '../MainTabs/startMainTabs';
-import HeadingText from '../../components/UI/HeadingText/HeadingText';
-import MainText from '../../components/UI/MainText/MainText';
-import backgroundImage from "../../assets/background.jpg";
+import startMainTabs from "../MainTabs/startMainTabs";
+import DefaultInput from "../../components/UI/DefaultInput/DefaultInput";
+import HeadingText from "../../components/UI/HeadingText/HeadingText";
+import MainText from "../../components/UI/MainText/MainText";
 import ButtonWithBackground from "../../components/UI/ButtonWithBackground/ButtonWithBackground";
+import backgroundImage from "../../assets/background.jpg";
 
 class AuthScreen extends Component {
     state = {
-       viewMode: Dimensions.get("window").height > 500 ? "portait" : "landscape"
+        viewMode: Dimensions.get("window").height > 500 ? "portrait" : "landscape"
     };
 
     constructor(props) {
@@ -23,7 +26,7 @@ class AuthScreen extends Component {
         Dimensions.addEventListener("change", dims => {
             this.setState({
                 viewMode:
-                    Dimensions.get("window").height > 500 ? "portait" : "landscape"
+                    Dimensions.get("window").height > 500 ? "portrait" : "landscape"
             });
         });
     }
@@ -32,63 +35,64 @@ class AuthScreen extends Component {
         startMainTabs();
     };
 
-
     render() {
         let headingText = null;
 
         if (this.state.viewMode === "portrait") {
             headingText = (
                 <MainText>
-                    <HeadingText> Please Log In </HeadingText>
+                    <HeadingText>Please Log In</HeadingText>
                 </MainText>
             );
         }
         return (
             <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
-            <View style={styles.container}> 
+                <View style={styles.container}>
                     {headingText}
-                    <ButtonWithBackground color="green" onPress={() => alert("Hello")}>
-                        Swith To Log In
-                    </ButtonWithBackground>
-                    <View style={styles.inputContainer}> 
+                    <ButtonWithBackground color="#29aaf4" onPress={() => alert("Hello")}>
+                        Switch to Login
+          </ButtonWithBackground>
+                    <View style={styles.inputContainer}>
                         <DefaultInput
-                            placeholder="Your Email Address"
+                            placeholder="Your E-Mail Address"
                             style={styles.input}
-                        /> 
+                        />
                         <View
                             style={
-                            this.state.viewMode === "portrait"
-                            ? styles.portraitPasswordContainer
-                            : styles.landscapePasswordContainer
-                          }
-                        >
-                            <View style={this.state.viewMode === "portrait"
-                                ? styles.portraitPasswordWrapper
-                                : styles.landscapePasswordWrapper
+                                this.state.viewMode === "portrait"
+                                    ? styles.portraitPasswordContainer
+                                    : styles.landscapePasswordContainer
                             }
-                         >
-                                <DefaultInput placeholder="Password" style={styles.input} />
-                            </View> 
+                        >
                             <View
                                 style={
-                                this.state.viewMode === "portrait"
-                                ? styles.portraitPasswordWrapper
-                                : styles.landscapePasswordWrapper
-                            }
+                                    this.state.viewMode === "portrait"
+                                        ? styles.portraitPasswordWrapper
+                                        : styles.landscapePasswordWrapper
+                                }
+                            >
+                                <DefaultInput placeholder="Password" style={styles.input} />
+                            </View>
+                            <View
+                                style={
+                                    this.state.viewMode === "portrait"
+                                        ? styles.portraitPasswordWrapper
+                                        : styles.landscapePasswordWrapper
+                                }
                             >
                                 <DefaultInput
                                     placeholder="Confirm Password"
                                     style={styles.input}
-                              />
+                                />
+                            </View>
                         </View>
                     </View>
-                </View>
-                    <ButtonWithBackground color="green" onPress={this.loginHandler}>
+                    <ButtonWithBackground color="#29aaf4" onPress={this.loginHandler}>
                         Submit
-                     </ButtonWithBackground>
-                </View> 
+          </ButtonWithBackground>
+                </View>
             </ImageBackground>
-            );
+        );
     }
 }
 
@@ -103,7 +107,6 @@ const styles = StyleSheet.create({
         flex: 1
     },
     inputContainer: {
-        
         width: "80%"
     },
     input: {
@@ -119,12 +122,11 @@ const styles = StyleSheet.create({
         justifyContent: "flex-start"
     },
     landscapePasswordWrapper: {
-        width: "45%" 
+        width: "45%"
     },
     portraitPasswordWrapper: {
         width: "100%"
     }
 });
-
 
 export default AuthScreen;
