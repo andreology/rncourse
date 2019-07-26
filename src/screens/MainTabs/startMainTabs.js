@@ -43,10 +43,16 @@ const startTabs = () => {
                     }
                 }
             ],
+            tabsStyle: {
+                tabBarSelectedButtonColor: "orange"
+            },
             drawer: {
                 left: {
                     screen: "dope-places.SideDrawer"
                 }
+            },
+            appStyle: {
+                tabBarSelectedButtonColor: "orange"
             }
         });
     });
