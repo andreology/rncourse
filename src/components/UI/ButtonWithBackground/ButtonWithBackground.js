@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
     TouchableOpacity,
     TouchableNativeFeedback,
@@ -6,7 +6,7 @@ import {
     View,
     StyleSheet,
     Platform
-} from "react-native";
+} from 'react-native';
 
 const buttonWithBackground = props => {
     const content = (
@@ -15,11 +15,10 @@ const buttonWithBackground = props => {
                 styles.button,
                 { backgroundColor: props.color },
                 props.disabled ? styles.disabled : null
-            ]}
+             ]}
         >
             <Text style={props.disabled ? styles.disabledText : null}>
-                {props.children}
-            </Text>
+                {props.children}</Text>
         </View>
     );
     if (props.disabled) {
@@ -33,6 +32,7 @@ const buttonWithBackground = props => {
         );
     }
     return <TouchableOpacity onPress={props.onPress}>{content}</TouchableOpacity>;
+
 };
 
 const styles = StyleSheet.create({
