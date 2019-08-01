@@ -1,5 +1,5 @@
-# rncourse
-React Native Course
+# Favorite places locator app
+Cross platform application IOS and Android 
 
 # start
 npm install 
