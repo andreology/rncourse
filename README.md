@@ -1,14 +1,14 @@
-# Favorite places locator app
+# Favorite Places Locator App
 Cross platform application IOS and Android 
 
-# start
+# How to Install 
 npm install 
 
-# emulator 
+# Using the Emulator 
 react-native run-android
 
 
 
-
+# Login Page 
 ![Login Screen](/src/assets/login.PNG)
 Format: ![Alt Text](url)
