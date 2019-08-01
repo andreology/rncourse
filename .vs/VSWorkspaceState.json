@@ -1,16 +1,15 @@
 {
   "ExpandedNodes": [
     "",
-    "\\src",
-    "\\src\\assets",
     "\\src\\components",
-    "\\src\\components\\PickImage",
-    "\\src\\components\\PickLocation",
-    "\\src\\components\\UI",
-    "\\src\\components\\UI\\ButtonWithBackground",
-    "\\src\\components\\UI\\MainText",
-    "\\src\\screens"
+    "\\src\\components\\ListItem",
+    "\\src\\screens",
+    "\\src\\screens\\Auth",
+    "\\src\\screens\\FindPlace",
+    "\\src\\screens\\PlaceDetail",
+    "\\src\\screens\\SharePlace",
+    "\\src\\utility"
   ],
-  "SelectedNode": "\\src\\screens\\SharePlace\\SharePlace.js",
+  "SelectedNode": "\\package.json",
   "PreviewInSolutionExplorer": false
 }
