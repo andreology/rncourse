@@ -2,27 +2,27 @@ const validate = (val, rules, connectedValue) => {
     let isValid = true;
     for (let rule in rules) {
         switch (rule) {
-            case "isEmail":
+            case 'isEmail':
                 isValid = isValid && emailValidator(val);
                 break;
-            case "minLength":
+            case 'minLength':
                 isValid = isValid && minLengthValidator(val, rules[rule]);
                 break;
-            case "equalTo":
+            case 'equalTo':
                 isValid = isValid && equalToValidator(val, connectedValue[rule]);
                 break;
             default:
                 isValid = true;
         }
     }
-
     return isValid;
 };
 
 const emailValidator = val => {
-    return /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(
-        val
-    );
+    //using regex found at 
+    //https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
+    return /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(val);
+
 };
 
 const minLengthValidator = (val, minLength) => {
