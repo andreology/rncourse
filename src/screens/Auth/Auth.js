@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import {
     View,
+    Text,
+    Button,
+    TextInput,
     StyleSheet,
     ImageBackground,
     Dimensions
@@ -12,8 +15,8 @@ import HeadingText from "../../components/UI/HeadingText/HeadingText";
 import MainText from "../../components/UI/MainText/MainText";
 import ButtonWithBackground from "../../components/UI/ButtonWithBackground/ButtonWithBackground";
 import backgroundImage from "../../assets/background.jpg";
-import validate from '../../utility/validation';
-import { connect } from "net";
+import validate from "../../utility/validation";
+
 class AuthScreen extends Component {
     state = {
         viewMode: Dimensions.get("window").height > 500 ? "portrait" : "landscape",
@@ -33,15 +36,14 @@ class AuthScreen extends Component {
                 }
             },
             confirmPassword: {
-                    value: "",
-                    valid: false,
-                    validationRules: {
-                        equalTo: 'password'
-                    }
+                value: "",
+                valid: false,
+                validationRules: {
+                    equalTo: "password"
+                }
             }
-         }
+        }
     };
-
 
     constructor(props) {
         super(props);
@@ -49,15 +51,14 @@ class AuthScreen extends Component {
     }
 
     componentWillUnmount() {
-        Dimensions.removeEventListener("change", this.updateStyles)
+        Dimensions.removeEventListener("change", this.updateStyles);
     }
 
-    updateStyles = (dims) => {
+    updateStyles = dims => {
         this.setState({
-            viewMode:
-                dims.window.height > 500 ? "portrait" : "landscape"
+            viewMode: dims.window.height > 500 ? "portrait" : "landscape"
         });
-    }
+    };
 
     loginHandler = () => {
         startMainTabs();
@@ -68,20 +69,16 @@ class AuthScreen extends Component {
         if (this.state.controls[key].validationRules.equalTo) {
             const equalControl = this.state.controls[key].validationRules.equalTo;
             const equalValue = this.state.controls[equalControl].value;
-            //set to js obj
             connectedValue = {
                 ...connectedValue,
                 equalTo: equalValue
             };
         }
-        if (key === 'password') {
-           
-            //set to js obj
+        if (key === "password") {
             connectedValue = {
                 ...connectedValue,
                 equalTo: value
             };
-
         }
         this.setState(prevState => {
             return {
@@ -89,23 +86,28 @@ class AuthScreen extends Component {
                     ...prevState.controls,
                     confirmPassword: {
                         ...prevState.controls.confirmPassword,
-                        valid: key === 'password'
-                            ? validate(
-                                prevState.controls.confirmPassword.value,
-                                prevState.controls.confirmPassword.validationRules,
-                                connectedValue
-                            )
-                            : prevState.controls.confirmPassword.valid
+                        valid:
+                            key === "password"
+                                ? validate(
+                                    prevState.controls.confirmPassword.value,
+                                    prevState.controls.confirmPassword.validationRules,
+                                    connectedValue
+                                )
+                                : prevState.controls.confirmPassword.valid
                     },
                     [key]: {
                         ...prevState.controls[key],
                         value: value,
-                        valid: validate(value, prevState.controls[key].validationRules, connectedValue)
+                        valid: validate(
+                            value,
+                            prevState.controls[key].validationRules,
+                            connectedValue
+                        )
                     }
                 }
             };
         });
-    }
+    };
 
     render() {
         let headingText = null;
@@ -129,7 +131,7 @@ class AuthScreen extends Component {
                             placeholder="Your E-Mail Address"
                             style={styles.input}
                             value={this.state.controls.email.value}
-                            onChangeText={(val) => this.updateInputState('email', val)}
+                            onChangeText={val => this.updateInputState("email", val)}
                         />
                         <View
                             style={
@@ -163,7 +165,8 @@ class AuthScreen extends Component {
                                     placeholder="Confirm Password"
                                     style={styles.input}
                                     value={this.state.controls.confirmPassword.value}
-                                    onChangeText={val => this.updateInputState("confirmPassword", val)}
+                                    onChangeText={val =>
+                                        this.updateInputState("confirmPassword", val)}
                                 />
                             </View>
                         </View>
